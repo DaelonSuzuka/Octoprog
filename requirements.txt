@@ -1,0 +1,7 @@
+cx-Freeze==6.4.2
+importlib-metadata==3.3.0
+PySide2==5.15.2
+QtAwesome==1.0.2
+QtPy==1.9.0
+shiboken2==5.15.2
+zipp==3.4.0
