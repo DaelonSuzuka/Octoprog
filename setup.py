@@ -11,21 +11,17 @@ cx_Freeze.setup(
     version = "1.0",
     options =  {
         "build_exe":{
-            "packages": [
-                'pyside2',
-                'shiboken2',
+            "includes": [
+                'PySide2',
             ],
             'excludes': [
-                'tkinter'
+                'tkinter',
             ],
             "include_files": [
                 'src/main.py',
                 'src/main_window.py',
                 "src/qt",
             ],
-            "includes": [
-                "dataclasses",
-            ]
         }
     },
     executables = [
