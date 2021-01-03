@@ -1,8 +1,16 @@
 from .qt import *
 
 
+alignments = {
+    'left': Qt.AlignLeft,
+    'right': Qt.AlignRight,
+    'top': Qt.AlignTop,
+    'bot': Qt.AlignBottom,
+}
+
+
 class ContextLayout:
-    def __init__(self, parent=None, stretch=None, margins=None, **kwargs):
+    def __init__(self, parent=None, stretch=None, margins=None, align=None, **kwargs):
         if parent is None or isinstance(parent, QWidget):
             super().__init__(parent, **kwargs)
         else:
@@ -14,6 +22,9 @@ class ContextLayout:
 
         if margins:
             self.setContentsMargins(*margins)
+
+        if align in alignments:
+            self.setAlignment(alignments[align])
 
         self._stack = []
         self.next_layout = None
