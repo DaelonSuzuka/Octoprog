@@ -16,13 +16,14 @@ run: venv
 debug: venv
 	$(VENV_PYTHON) -m pdb src/main.py
 
-# build an executable using cx_Freeze
-build: venv
-	$(VENV_PYTHON) setup.py build_exe
+# build an one folder bundle 
+bundle: venv
+	$(VENV_PYINSTALLER) bundle.spec
 
-# build a windows installer using cx_Freeze
-installer: venv
-	$(VENV_PYTHON) setup.py bdist_msi
+# build a single file executable
+exe: venv
+	$(VENV_PYINSTALLER) onefile.spec
+
 # remove pyinstaller's output
 clean:
 	echo cleaning build 
@@ -36,11 +37,13 @@ ifeq ($(OS),Windows_NT)
 	VENV := $(VENV_DIR)\Scripts
 	PYTHON := python
 	VENV_PYTHON := $(VENV)\$(PYTHON)
+	VENV_PYINSTALLER := $(VENV)\pyinstaller
 else
 	VENV_DIR := $(VENV_NAME)
 	VENV := $(VENV_DIR)/bin
 	PYTHON := python3
 	VENV_PYTHON := $(VENV)/$(PYTHON)
+	VENV_PYINSTALLER := $(VENV)\pyinstaller
 endif
 
 # Add this as a requirement to any make target that relies on the venv
