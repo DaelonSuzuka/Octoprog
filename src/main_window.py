@@ -73,10 +73,8 @@ class MainWindow(QMainWindow):
     def __init__(self, parent=None):
         super().__init__(parent=parent)
         self.setObjectName("MainWindow")
-        self.setWindowTitle("PIC-Multi-Prog")
 
         self.setAcceptDrops(True)
-
         self.load_settings()
         
         widget = QWidget(self)

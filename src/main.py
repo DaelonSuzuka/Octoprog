@@ -18,8 +18,8 @@ class Application(QApplication):
     def init_app_info(self):
         self.setOrganizationName("LDG Electronics")
         self.setOrganizationDomain("LDG Electronics")
-        self.setApplicationName("PIC-Multi-Prog")
-        self.setApplicationVersion("v0.1")
+        self.setApplicationName("Octoprog")
+        self.setApplicationVersion("v1.0")
 
 
 def run():    
