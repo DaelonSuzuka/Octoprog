@@ -5,6 +5,15 @@ import signal
 from main_window import MainWindow
 
 
+try:
+    # Include in try/except block if you're also targeting Mac/Linux
+    from PySide2.QtWinExtras import QtWin
+    myappid = 'LDG.Octoprog.1.0'
+    QtWin.setCurrentProcessExplicitAppUserModelID(myappid)
+except ImportError:
+    pass
+
+
 class Application(QApplication):
     def __init__(self) -> None:
         super().__init__()

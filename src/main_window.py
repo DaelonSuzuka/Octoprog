@@ -73,6 +73,7 @@ class MainWindow(QMainWindow):
     def __init__(self, parent=None):
         super().__init__(parent=parent)
         self.setObjectName("MainWindow")
+        self.setWindowIcon(QIcon('octoprog.ico'))
 
         self.setAcceptDrops(True)
         self.load_settings()
