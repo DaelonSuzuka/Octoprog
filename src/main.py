@@ -2,11 +2,7 @@
 
 from qt import *
 import signal
-
-
-class MainWindow(QMainWindow):
-    def __init__(self, parent=None):
-        super().__init__(parent=parent)
+from main_window import MainWindow
 
 
 class Application(QApplication):
