@@ -24,6 +24,10 @@ bundle: venv
 exe: venv
 	$(VENV_PYINSTALLER) onefile.spec
 
+# build an installer with inno
+installer: venv
+	iscc "octoprog.iss"
+
 # remove pyinstaller's output
 clean:
 	echo cleaning build 
