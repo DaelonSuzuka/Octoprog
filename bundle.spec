@@ -6,7 +6,7 @@ a = Analysis(
     ['src\\main.py'],
     pathex=['P:\\Octoprog'],
     binaries=[],
-    datas=[('octoprog.ico', '.')],
+    datas=[('resources/octoprog.ico', 'resources')],
     hiddenimports=[],
     hookspath=[],
     runtime_hooks=[],
@@ -33,7 +33,7 @@ exe = EXE(
     bootloader_ignore_signals=False,
     strip=False,
     upx=True,
-    icon='octoprog.ico',
+    icon='resources/octoprog.ico',
     console=False 
 )
 

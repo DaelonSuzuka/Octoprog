@@ -18,11 +18,11 @@ debug: venv
 
 # build an one folder bundle 
 bundle: venv
-	$(VENV_PYINSTALLER) bundle.spec
+	$(VENV_PYINSTALLER) -y bundle.spec
 
 # build a single file executable
 exe: venv
-	$(VENV_PYINSTALLER) onefile.spec
+	$(VENV_PYINSTALLER) -y onefile.spec
 
 # build an installer with inno
 installer: venv
