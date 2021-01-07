@@ -26,7 +26,7 @@ exe: venv
 
 # build an installer with inno
 installer: venv
-	iscc "octoprog.iss"
+	iscc "installer.iss"
 
 # remove pyinstaller's output
 clean:
