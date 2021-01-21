@@ -69,14 +69,13 @@ programmer_list = {
 }
 
 
-class MainWindow(QMainWindow):
+class MainWindow(BaseMainWindow):
     def __init__(self, parent=None):
         super().__init__(parent=parent)
         self.setObjectName("MainWindow")
         self.setWindowIcon(QIcon('resources/octoprog.ico'))
 
         self.setAcceptDrops(True)
-        self.load_settings()
         
         widget = QWidget(self)
         self.setCentralWidget(widget)
@@ -231,17 +230,3 @@ class MainWindow(QMainWindow):
         filename = event.mimeData().text()[strip:]
         if os.path.isfile(filename):
             self.filename.setText(filename)
-
-    def closeEvent(self, event):
-        self.save_settings()
-        super().closeEvent(event)
-        
-    def save_settings(self):
-        QSettings().setValue("window_geometry", self.saveGeometry())
-        QSettings().setValue("window_state", self.saveState())
-
-    def load_settings(self):
-        if QSettings().value("window_geometry") is not None:
-            self.restoreGeometry(QSettings().value("window_geometry"))
-        if QSettings().value("window_state") is not None:
-            self.restoreState(QSettings().value("window_state"))
