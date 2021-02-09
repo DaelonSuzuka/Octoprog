@@ -18,3 +18,5 @@ settings.json
 log.txt
 settings-logviewer.json
 log.db
+
+debug.log
