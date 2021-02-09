@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 
 from qt import *
-import signal
 from main_window import MainWindow
 
 
@@ -14,7 +13,7 @@ except ImportError:
     pass
 
 
-class Application(QApplication):
+class Application(BaseApplication):
     def __init__(self) -> None:
         super().__init__()
 
@@ -34,13 +33,6 @@ class Application(QApplication):
 def run():    
     # Create the Qt Application
     app = Application()
-
-    def ctrlc_handler(sig, frame):
-        app.window.close()
-        app.shutdown()
-
-    # grab the keyboard interrupt signal 
-    signal.signal(signal.SIGINT, ctrlc_handler)
 
     # Run the main Qt loop
     app.exec_()
