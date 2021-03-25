@@ -3,8 +3,8 @@
 block_cipher = None
 
 a = Analysis(
-    ['src\\main.py'],
-    pathex=['P:\\Octoprog'],
+    ['src/main.py'],
+    pathex=['./src'],
     binaries=[],
     datas=[('resources/octoprog.ico', 'resources')],
     hiddenimports=[],
