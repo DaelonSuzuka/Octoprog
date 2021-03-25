@@ -1,4 +1,4 @@
-from qt import *
+from qtstrap import *
 from shutil import which
 import os
 from pathlib import Path

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from qt import *
+from qtstrap import *
 from main_window import MainWindow
 
 
