@@ -8,7 +8,7 @@ MAKEFLAGS += -s
 # **************************************************************************** #
 
 # load the project variables
-include project.mk
+include project.ini
 # export them for InnoSetup
 export
 

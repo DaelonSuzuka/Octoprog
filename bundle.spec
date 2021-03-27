@@ -1,26 +1,39 @@
 # -*- mode: python ; coding: utf-8 -*-
 
-block_cipher = None
+import configparser
+from pathlib import Path
+
+
+with open('project.ini') as f:
+    file_content = '[dummy_section]\n' + f.read()
+
+
+config = configparser.ConfigParser()
+config.read_string(file_content)
+
+app_name = config['dummy_section']['AppName']
+icon_file = config['dummy_section']['AppIconName']
+
 
 a = Analysis(
     ['src/main.py'],
     pathex=['./src'],
     binaries=[],
-    datas=[('resources/octoprog.ico', 'resources')],
+    datas=[(icon_file, 'resources')],
     hiddenimports=[],
     hookspath=[],
     runtime_hooks=[],
     excludes=[],
     win_no_prefer_redirects=False,
     win_private_assemblies=False,
-    cipher=block_cipher,
+    cipher=None,
     noarchive=False
 )
 
 pyz = PYZ(
     a.pure, 
     a.zipped_data,
-    cipher=block_cipher
+    cipher=None
 )
 
 exe = EXE(
@@ -28,12 +41,12 @@ exe = EXE(
     a.scripts,
     [],
     exclude_binaries=True,
-    name='Octoprog',
+    name=app_name,
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,
     upx=False,
-    icon='resources/octoprog.ico',
+    icon=icon_file,
     console=False 
 )
 
@@ -45,5 +58,5 @@ coll = COLLECT(
     strip=False,
     upx=False,
     upx_exclude=[],
-    name='Octoprog'
+    name=app_name
 )
