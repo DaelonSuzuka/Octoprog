@@ -19,4 +19,5 @@ log.txt
 settings-logviewer.json
 log.db
 
-debug.log
+.portable
+settings.ini
