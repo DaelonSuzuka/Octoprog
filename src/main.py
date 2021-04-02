@@ -4,7 +4,7 @@ from qtstrap import *
 from main_window import MainWindow
 
 
-def run():    
+def run():
     # Create the Qt Application
     app = BaseApplication()
 
