@@ -34,12 +34,12 @@ run: venv
 debug: venv
 	$(VENV_PYTHON) -m pdb src/main.py
 
+# run the test suite
+test: venv
+	$(VENV_PYTHON) -m pytest
+
 # **************************************************************************** #
 # Build Targets
-
-beep:
-	echo $(AppName)
-	echo $(AppVersion)
 
 # build a one folder bundle 
 bundle: venv
@@ -58,7 +58,13 @@ endif
 
 # wrap the bundle into a zip file
 zip:
+	echo > dist/$(AppName)/.portable
 	$(PYTHON) -m zipfile -c dist/$(AppName)-$(AppVersion)-portable.zip dist/$(AppName)/
+ifeq ($(OS),Windows_NT)
+	del dist\$(AppName)\.portable
+else
+	-@ $(RM) dist/$(AppName)/.portable
+endif
 
 # build an installer with InnoSetup
 installer:
