@@ -72,8 +72,6 @@ programmer_list = {
 class MainWindow(BaseMainWindow):
     def __init__(self, parent=None):
         super().__init__(parent=parent)
-        self.setObjectName("MainWindow")
-        self.setWindowIcon(QIcon('resources/octoprog.ico'))
 
         self.setAcceptDrops(True)
         
@@ -89,10 +87,10 @@ class MainWindow(BaseMainWindow):
             else:
                 self.target.setText('')
 
-        self.processors = PersistentListWidget('processors', items=processor_list, changed=update_selected_processor)
+        self.processors = PersistentListWidget('processor', items=processor_list, changed=update_selected_processor)
         update_selected_processor()
         
-        self.programmers = PersistentComboBox('programmers', items=programmer_list)
+        self.programmers = PersistentComboBox('programmer', items=programmer_list)
         self.upload = QPushButton('Upload', clicked=self.start_upload)
         self.filename = QLabel(QSettings().value('filename', ''))
         self.open_file = QPushButton('Open File', clicked=self.open_file_dialog)

@@ -13,26 +13,13 @@ except ImportError:
     pass
 
 
-class Application(BaseApplication):
-    def __init__(self) -> None:
-        super().__init__()
-
-        self.init_app_info()
-
-        # create window
-        self.window = MainWindow()
-        self.window.show()
-
-    def init_app_info(self):
-        self.setOrganizationName("LDG Electronics")
-        self.setOrganizationDomain("LDG Electronics")
-        self.setApplicationName("Octoprog")
-        self.setApplicationVersion("v1.0")
-
-
 def run():    
     # Create the Qt Application
-    app = Application()
+    app = BaseApplication()
+
+    # create window
+    window = MainWindow()
+    window.show()
 
     # Run the main Qt loop
     app.exec_()

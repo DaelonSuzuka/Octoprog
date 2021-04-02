@@ -1,0 +1,6 @@
+AppName = "Octoprog"
+AppVersion = "0.1"
+AppPublisher = "DaelonCo"
+AppExeName = "Octoprog.exe"
+AppIconName = "resources/octoprog.ico"
+AppId = "{{9c93ff91-084b-4c97-8bb1-2e5e17258351}"
