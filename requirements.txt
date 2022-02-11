@@ -1,6 +1,5 @@
 altgraph==0.17
 click==7.1.2
-cx-Freeze==6.4.2
 future==0.18.2
 importlib-metadata==3.3.0
 pefile==2019.4.18
